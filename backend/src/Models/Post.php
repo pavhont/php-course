@@ -2,6 +2,8 @@
 
 namespace It20Academy\App\Models;
 
+use It20Academy\App\Core\Db;
+
 class Post
 {
     private int $id;
@@ -14,16 +16,17 @@ class Post
 
     public static function all(): array
     {
-        $db = require_once __DIR__ . "/../../storage/db.php";
-        $initialPosts = isset($db['posts']) ? $db['posts'] : [];
+        $dbh = (new Db())->getHandler();
+        $statement = $dbh->query('select * from posts');
+        $initialPosts = $statement->fetchAll();
 
         return array_map(function ($initialPost) {
             $post = new self;
             $post->setId($initialPost['id']);
             $post->setTitle($initialPost['title']);
             $post->setContent($initialPost['content']);
-            $post->setCategory($initialPost['category']);
-            $post->setAuthor($initialPost['author']);
+            $post->setCategory($initialPost['category_id']);
+            $post->setAuthor($initialPost['author_id']);
             $post->setImg($initialPost['img']);
 
             return $post;
