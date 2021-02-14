@@ -99,3 +99,22 @@ dump(file_exists('./../storage/new_file.txt'));
 $arr = file('./../storage/file.txt');
 
 dump($arr);
+
+
+
+//========== Работа с csv файлами ============
+
+/**
+ * fgetcsv() — Читает строку из файла и производит разбор данных CSV
+ *
+ * @url https://www.php.net/manual/ru/function.fgetcsv.php
+ */
+$csvResource = fopen('./../storage/file.csv', 'r');
+
+if (! $csvResource) {
+    dump('Ошибка чтения файла');
+} else {
+    while (($data = fgetcsv($csvResource, 1000, ';')) !== false) {
+        dump($data);
+    }
+}
