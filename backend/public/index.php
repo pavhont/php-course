@@ -58,3 +58,18 @@ while (! feof($file)) {
 
 echo $buffer;
 fclose($file);
+
+
+//========== Сокращенные варианты для работы с файлами ============
+
+/**
+ * file_put_contents() - Пишет данные в файл
+ * @url https://www.php.net/manual/ru/function.file-put-contents.php
+ */
+file_put_contents('./../storage/new_file.txt', 'New string' . PHP_EOL);
+
+/**
+ * file_get_contents() - Читает содержимое файла в строку
+ * @url https://www.php.net/manual/ru/function.file-get-contents.php
+ */
+echo file_get_contents('./../storage/new_file.txt');
