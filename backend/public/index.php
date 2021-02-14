@@ -73,3 +73,16 @@ file_put_contents('./../storage/new_file.txt', 'New string' . PHP_EOL);
  * @url https://www.php.net/manual/ru/function.file-get-contents.php
  */
 echo file_get_contents('./../storage/new_file.txt');
+
+
+
+//========== Удаление файла ============
+
+/**
+ * unlink() — Удаляет файл
+ *
+ * @url https://www.php.net/manual/ru/function.unlink.php
+ */
+//unlink('./../storage/new_file.txt');
+
+dump(file_exists('./../storage/new_file.txt'));
