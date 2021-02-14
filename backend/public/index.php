@@ -86,3 +86,16 @@ echo file_get_contents('./../storage/new_file.txt');
 //unlink('./../storage/new_file.txt');
 
 dump(file_exists('./../storage/new_file.txt'));
+
+
+
+//========== Сохранение данных из файла в массив ============
+
+/**
+ * file() — Читает содержимое файла и помещает его в массив
+ *
+ * @url https://www.php.net/manual/ru/function.file.php
+ */
+$arr = file('./../storage/file.txt');
+
+dump($arr);
