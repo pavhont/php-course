@@ -33,3 +33,28 @@ if (! $file) {
     fwrite($file, 'Test String' . PHP_EOL);
     fclose($file);
 }
+
+//========== Чтение данных из файла ============
+
+$file = fopen('./../storage/file.txt', "r");
+
+// Буфферная переменная обьявляется, т.к. чтение идет последовательно
+$buffer = '';
+
+/**
+ * feof() - будет проверять, что мы не дошли до конца файла
+ * @url https://www.php.net/manual/ru/function.feof.php
+ *
+ * fread() - Бинарно-безопасное чтение файла
+ * @url https://www.php.net/manual/ru/function.fread.php
+ *
+ */
+while (! feof($file)) {
+    $buffer .= fread($file, 1);
+}
+
+// этот вариант опасен, если размеры файлов большие
+// $buffer = fread($file, filesize($file));
+
+echo $buffer;
+fclose($file);
