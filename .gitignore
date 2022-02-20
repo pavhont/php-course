@@ -1,0 +1,6 @@
+/**/.idea/
+/**/.DS_Store
+
+/**/docker/mysql/dbdata/*
+/**/docker/nginx/logs/*
+!/**/docker/nginx/logs/.gitkeep
